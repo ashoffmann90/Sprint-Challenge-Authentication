@@ -7,6 +7,9 @@
     "test": "cross-env FOOBAR=testing jest --watch --verbose --coverage --runInBand",
     "server": "nodemon index.js"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/Sprint-Challenge-Authentication.git"
@@ -24,6 +27,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
+    "jest": "^26.0.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.4",
     "sqlite3": "^4.1.1"
