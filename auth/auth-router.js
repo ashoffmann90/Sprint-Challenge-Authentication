@@ -2,7 +2,6 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs')
 const Users = require('./auth-model')
 const jwt = require('jsonwebtoken')
-const restricted = require('./authenticate-middleware')
 
 function isValid(user) {
   return Boolean(user.username && user.password && typeof user.password === "string");
