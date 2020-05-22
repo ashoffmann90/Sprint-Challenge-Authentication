@@ -29,21 +29,22 @@ test('get to /jokes returns an error saying you need authentication information'
 
 
 // test with auth
-    // it('returns status 200', async() => {
-    //     const reg = await request(server)
-    //     .post('/api/auth/register')
-    //     .send({ 
-    //         username: 'dude',
-    //         password: 'test'
-    //     })
-    //     const res = await request(server)
-    //     .post('/api/auth/login')
-    //     .send({
-    //         username: 'dude', 
-    //         password: 'test'
-    //     })
-    //     const getJokes = await request(server)
-    //     .get('/api/jokes')
-    //     console.log(getJokes.status)
-    //     expect(getJokes.status).toBe(200)
-    // })
+    test('returns status 200', async() => {
+        const reg = await request(server)
+        .post('/api/auth/register')
+        .send({ 
+            username: 'dude',
+            password: 'test'
+        })
+        const res = await request(server)
+        .post('/api/auth/login')
+        .send({
+            username: 'dude', 
+            password: 'test'
+        })
+        const getJokes = await request(server)
+        .get('/api/jokes')
+        .set('Authorization', res.body.token)
+        // console.log(res)
+        expect(getJokes.status).toBe(200)
+    })

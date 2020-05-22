@@ -63,5 +63,5 @@ test('login POST /api/auth/login to send a token', async () => {
         username: 'dude', 
         password: 'test'
     })
-    expect(res.status).toBe(201)
+    expect(res.body.token).toBeDefined()
 })
